@@ -1,12 +1,10 @@
-import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-export default function DetailScreen() {
-
-
+export default function ProductCard() {
     return (
         <View>
-
+            <Text>ProductCard</Text>
         </View>
     )
 }
