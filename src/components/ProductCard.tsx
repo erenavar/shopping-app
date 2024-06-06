@@ -6,24 +6,31 @@ export default function ProductCard() {
     return (
         <View style={styles.productContainer}>
             <Image style={styles.image} source={{ uri: 'https://picsum.photos/200/300' }} />
-            <View>
+            <View style={styles.midLine}>
                 <Text style={styles.price}>$25.55</Text>
-                <AntDesign name="hearto" size={24} color="black" />
+                <AntDesign name="hearto" size={20} color="red" />
             </View>
-            <Text>Title</Text>
+            <Text>Lorem, ipsum dolor.</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     productContainer: {
+        width: "40%"
     },
     image: {
-
-        height: 300,
-        width: 200
+        height: "67%"
+    },
+    midLine: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 10,
+        marginBottom: 3
     },
     price: {
-
+        color: "red",
+        fontWeight: "bold",
+        fontSize: 16
     }
 })
