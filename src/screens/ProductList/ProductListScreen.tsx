@@ -1,10 +1,20 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
-import Indicator from '../../components/Indicator';
+import { useQuery } from 'react-query'
+import { IProduct } from './types'
 
 export default function ProductListScreen() {
 
+    const { data } = useQuery<IProduct>({
+        queryKey: ["products"],
+        queryFn: async () => {
+            const response = (await fetch('https://fakestoreapi.com/products'))
+            return await response.json();
+        }
 
+    })
+    console.log(data)
+    
     return (
         <View>
             <Text>ProductListScreen</Text>
