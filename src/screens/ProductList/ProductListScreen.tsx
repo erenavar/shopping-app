@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { useQuery } from 'react-query'
 import { IProduct } from './types'
+import ProductCard from '../../components/ProductCard'
 
 export default function ProductListScreen() {
 
@@ -14,10 +15,10 @@ export default function ProductListScreen() {
 
     })
     console.log(data)
-    
+
     return (
         <View>
-            <Text>ProductListScreen</Text>
+            <ProductCard />
         </View>
     )
 }
