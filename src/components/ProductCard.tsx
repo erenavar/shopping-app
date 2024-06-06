@@ -29,13 +29,12 @@ export default function ProductCard() {
 }
 
 
-
 const styles = StyleSheet.create({
     productContainer: {
         width: "40%"
     },
     image: {
-        height: "67%"
+        height: 300
     },
     midLine: {
         flexDirection: "row",
