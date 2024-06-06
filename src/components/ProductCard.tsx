@@ -1,19 +1,34 @@
-import React from 'react'
-import { StyleSheet, Image, View, Text, ScrollView } from 'react-native';
+import React, { useState } from 'react'
+import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ProductCard() {
+    const navigation = useNavigation();
+    const toDetailPage = () => {
+        navigation.navigate("Details")
+    }
+
+    const [pressedHeart, setPressedHeart] = useState<boolean>(false)
+
     return (
-        <View style={styles.productContainer}>
+        <Pressable style={styles.productContainer} onPress={toDetailPage}>
             <Image style={styles.image} source={{ uri: 'https://picsum.photos/200/300' }} />
             <View style={styles.midLine}>
                 <Text style={styles.price}>$25.55</Text>
-                <AntDesign name="hearto" size={20} color="red" />
+                <Pressable onPress={() => { setPressedHeart(!pressedHeart) }}>
+                    {pressedHeart ?
+                        <AntDesign name="heart" size={20} color="red" /> :
+                        <AntDesign name="hearto" size={20} color="red" />
+                    }
+                </Pressable>
             </View>
             <Text>Lorem, ipsum dolor.</Text>
-        </View>
+        </Pressable>
     )
 }
+
+
 
 const styles = StyleSheet.create({
     productContainer: {

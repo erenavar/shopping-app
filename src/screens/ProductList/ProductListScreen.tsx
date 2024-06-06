@@ -14,7 +14,6 @@ export default function ProductListScreen() {
         }
 
     })
-    console.log(data)
 
     return (
         <View>
