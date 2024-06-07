@@ -3,6 +3,10 @@ import DetailScreen from '../screens/Detail/DetailScreen';
 import ProductListScreen from '../screens/ProductList/ProductListScreen';
 
 
+
+
+
+
 const Stack = createNativeStackNavigator();
 
 function StackNavigation() {

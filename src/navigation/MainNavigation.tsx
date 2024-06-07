@@ -3,8 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import CartScreen from '../screens/Cart/CartScreen';
 import StackNavigation from './StackNavigation';
 
-const Tab = createBottomTabNavigator();
 
+
+const Tab = createBottomTabNavigator();
 export default function MainNavigation() {
     return (
         <NavigationContainer>

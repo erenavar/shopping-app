@@ -3,16 +3,16 @@ import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
+
+
 export default function ProductCard(props: any) {
     const navigation = useNavigation();
-    const toDetailPage = () => {
-        navigation.navigate("Details")
-    }
+
 
     const [pressedHeart, setPressedHeart] = useState<boolean>(false)
 
     return (
-        <Pressable style={styles.productContainer} onPress={toDetailPage}>
+        <Pressable style={styles.productContainer} onPress={props.nav}>
             <Image style={styles.image} source={{ uri: props.img }} resizeMode="contain" />
             <View style={styles.midLine}>
                 <Text style={styles.price}>${props.price}</Text>

@@ -1,11 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button, FlatList } from 'react-native'
 import { useQuery } from 'react-query'
-import { IProduct } from './types'
-import ProductCard from '../../components/ProductCard'
+import ProductCard from '../../components/ProductCard';
+import { IProduct } from './types';
+import { useNavigation } from '@react-navigation/native';
+
+
+
 
 export default function ProductListScreen() {
-
+    const navigation = useNavigation();
+    const navigateTo = () => {
+        navigation.navigate("Details")
+    }
     const { data } = useQuery<IProduct[]>({
         queryKey: ["products"],
         queryFn: async () => {
@@ -16,7 +23,7 @@ export default function ProductListScreen() {
     })
 
     const renderItem = ({ item }: { item: IProduct }) => {
-        return <ProductCard title={item.title} price={item.price} img={item.image} id={item.id} />
+        return <ProductCard title={item.title} price={item.price} img={item.image} id={item.id} nav={navigateTo} />
     }
 
     return (
