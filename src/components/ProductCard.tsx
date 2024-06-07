@@ -3,7 +3,7 @@ import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-export default function ProductCard() {
+export default function ProductCard(props: any) {
     const navigation = useNavigation();
     const toDetailPage = () => {
         navigation.navigate("Details")
@@ -13,9 +13,9 @@ export default function ProductCard() {
 
     return (
         <Pressable style={styles.productContainer} onPress={toDetailPage}>
-            <Image style={styles.image} source={{ uri: 'https://picsum.photos/200/300' }} />
+            <Image style={styles.image} source={{ uri: props.img }} resizeMode="contain" />
             <View style={styles.midLine}>
-                <Text style={styles.price}>$25.55</Text>
+                <Text style={styles.price}>${props.price}</Text>
                 <Pressable onPress={() => { setPressedHeart(!pressedHeart) }}>
                     {pressedHeart ?
                         <AntDesign name="heart" size={20} color="red" /> :
@@ -23,7 +23,8 @@ export default function ProductCard() {
                     }
                 </Pressable>
             </View>
-            <Text>Lorem, ipsum dolor.</Text>
+            <Text>{props.title}</Text>
+
         </Pressable>
     )
 }
@@ -31,10 +32,15 @@ export default function ProductCard() {
 
 const styles = StyleSheet.create({
     productContainer: {
-        width: "40%"
+        width: "46%",
+        marginLeft: "3%",
+        marginTop: 10,
+
+
     },
     image: {
-        height: 300
+        height: 300,
+
     },
     midLine: {
         flexDirection: "row",

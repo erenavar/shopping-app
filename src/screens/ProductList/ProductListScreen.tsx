@@ -16,12 +16,13 @@ export default function ProductListScreen() {
     })
 
     const renderItem = ({ item }: { item: IProduct }) => {
-        return <ProductCard />
+        return <ProductCard title={item.title} price={item.price} img={item.image} id={item.id} />
     }
 
     return (
         <View>
             <FlatList
+                numColumns={2}
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={item => item.id.toString()}

@@ -9,7 +9,7 @@ function StackNavigation() {
     return (
 
         <Stack.Navigator >
-            <Stack.Screen name="Products" component={ProductListScreen} />
+            <Stack.Screen name="Products" component={ProductListScreen} options={{}} />
             <Stack.Screen name="Details" component={DetailScreen} />
         </Stack.Navigator>
 
