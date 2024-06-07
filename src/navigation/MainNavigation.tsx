@@ -5,7 +5,15 @@ import StackNavigation from './StackNavigation';
 
 
 
-const Tab = createBottomTabNavigator();
+type RouteStackParamList = {
+    Products: undefined,
+    Cart: {
+        id: number
+    }
+}
+
+
+const Tab = createBottomTabNavigator<RouteStackParamList>();
 export default function MainNavigation() {
     return (
         <NavigationContainer>
@@ -16,3 +24,5 @@ export default function MainNavigation() {
         </NavigationContainer>
     );
 }
+
+export { RouteStackParamList };

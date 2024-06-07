@@ -4,14 +4,16 @@ import { useQuery } from 'react-query'
 import ProductCard from '../../components/ProductCard';
 import { IProduct } from './types';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RouteStackParamList } from '../../navigation/MainNavigation';
 
 
+interface INavigation extends NativeStackScreenProps<RouteStackParamList, "Products"> { }
 
+export default function ProductListScreen({ navigation }: INavigation) {
 
-export default function ProductListScreen() {
-    const navigation = useNavigation();
-    const navigateTo = () => {
-        navigation.navigate("Details")
+    const navigateTo = (id: number) => {
+        navigation.navigate("Details", { idNumber: id })
     }
     const { data } = useQuery<IProduct[]>({
         queryKey: ["products"],
@@ -23,7 +25,7 @@ export default function ProductListScreen() {
     })
 
     const renderItem = ({ item }: { item: IProduct }) => {
-        return <ProductCard title={item.title} price={item.price} img={item.image} id={item.id} nav={navigateTo} />
+        return <ProductCard title={item.title} price={item.price} img={item.image} id={item.id} nav={() => navigateTo(item.id)} />
     }
 
     return (
