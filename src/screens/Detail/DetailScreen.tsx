@@ -40,7 +40,7 @@ export default function DetailScreen(props: any) {
             <View style={styles.bottom}>
                 <Text style={styles.price}>${data.price}</Text>
                 <Pressable onPress={addCart}>
-                    <FontAwesome6 name="cart-plus" size={34} color="black" />
+                    <FontAwesome6 name="cart-plus" size={34} color="red" />
                 </Pressable>
 
             </View>
@@ -52,7 +52,7 @@ export default function DetailScreen(props: any) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        margin: 10
+        margin: 10,
     },
     header: {
         alignItems: "center"
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     price: {
-        color: "darkred",
+        color: "red",
         fontSize: 25,
         fontWeight: "bold"
     }
