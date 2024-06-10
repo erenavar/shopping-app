@@ -26,6 +26,7 @@ export default function DetailScreen(props: any) {
 
 
 
+
     isLoading ? <Indicator /> : null;
 
     return (

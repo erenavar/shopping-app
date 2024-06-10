@@ -10,11 +10,11 @@ const queryClient = new QueryClient();
 export default function App() {
 
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient} contextSharing>
+      <Provider store={store}>
         <MainNavigation />
-      </QueryClientProvider>
-    </Provider>
+      </Provider>
+    </QueryClientProvider>
   )
 };
 
