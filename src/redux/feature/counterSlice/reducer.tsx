@@ -8,9 +8,9 @@ interface State {
 
 
 const initialState: State[] = [{
-    img: "",
-    price: null,
-    title: ""
+    img: "test",
+    price: 123,
+    title: "test"
 }]
 
 
