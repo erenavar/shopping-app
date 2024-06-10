@@ -31,15 +31,15 @@ export default function DetailScreen(props: any) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>{data.title}</Text>
+            <Text style={styles.title}>{data?.title}</Text>
             <Image
                 style={styles.img}
-                source={{ uri: data.image }}
+                source={{ uri: data?.image }}
                 resizeMode="contain"
             />
-            <Text style={styles.description}>{data.description}</Text>
+            <Text style={styles.description}>{data?.description}</Text>
             <View style={styles.bottom}>
-                <Text style={styles.price}>${data.price}</Text>
+                <Text style={styles.price}>${data?.price}</Text>
                 <Pressable onPress={addCart}>
                     <FontAwesome6 name="cart-plus" size={34} color="red" />
                 </Pressable>
