@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Button, FlatList } from 'react-native'
 import { useQuery } from 'react-query'
 import ProductCard from '../../components/ProductCard';
 import { IProduct } from './types';
-import { useNavigation } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RouteStackParamList } from '../../navigation/MainNavigation';
 
