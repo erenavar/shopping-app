@@ -1,8 +1,10 @@
-import { useRoute } from '@react-navigation/native'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { useRoute } from '@react-navigation/native'
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import { useQuery } from 'react-query'
 import Indicator from '../../components/Indicator'
+import { FontAwesome6 } from '@expo/vector-icons';
+import { BottomTabBar } from '@react-navigation/bottom-tabs'
 
 
 
@@ -17,12 +19,31 @@ export default function DetailScreen(props: any) {
         }
     })
 
+    const addCart = () => {
+        alert("test")
+    }
+
+
+
 
     isLoading ? <Indicator /> : null;
 
     return (
         <View style={styles.container}>
-            <Text>ded</Text>
+            <Text style={styles.title}>{data.title}</Text>
+            <Image
+                style={styles.img}
+                source={{ uri: data.image }}
+                resizeMode="contain"
+            />
+            <Text style={styles.description}>{data.description}</Text>
+            <View style={styles.bottom}>
+                <Text style={styles.price}>${data.price}</Text>
+                <Pressable onPress={addCart}>
+                    <FontAwesome6 name="cart-plus" size={34} color="black" />
+                </Pressable>
+
+            </View>
 
         </View>
     )
@@ -30,6 +51,33 @@ export default function DetailScreen(props: any) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        margin: 10
+    },
+    header: {
+        alignItems: "center"
+    },
+    title: {
+        fontWeight: "bold",
+        fontSize: 28,
+        textAlign: "center"
+    },
+    img: {
+        height: "30%",
+        width: "40%",
+        alignSelf: "center"
+    },
+    description: {
+        margin: 15
+    },
+    bottom: {
+        marginTop: 30,
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
+    price: {
+        color: "darkred",
+        fontSize: 25,
+        fontWeight: "bold"
     }
 })
